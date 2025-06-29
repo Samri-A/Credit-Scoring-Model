@@ -30,3 +30,121 @@ Our dataset does not carry an explicit “default = Yes/No” label. To trai
 **Bottom line:** In highly regulated environments, a slight drop in predictive performance is often acceptable if it means the model is transparent, auditable, and easier to defend to regulators.
 
 ---
+
+
+# Credit Scoring Model
+
+A machine learning project for credit risk assessment using transactional data. This repository contains code, data, and notebooks for building, evaluating, and serving a credit scoring model, with a focus on regulatory compliance and interpretability.
+
+---
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Business Understanding](#business-understanding)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Testing](#testing)
+- [API](#api)
+- [Acknowledgements](#acknowledgements)
+
+---
+
+## Project Overview
+
+This project aims to develop a credit scoring model using historical transaction data. The model predicts the likelihood of default, supporting risk management and lending decisions. The workflow includes data processing, exploratory analysis, model training, and API deployment.
+
+---
+
+## Business Understanding
+
+- **Regulatory Focus:** Basel II compliance, emphasizing interpretable and well-documented models.
+- **Proxy Default Variable:** Since the dataset lacks an explicit default label, a proxy (e.g., 90 days past due) is used for supervised learning.
+- **Model Choices:** Both simple (logistic regression) and complex (gradient boosting) models are considered, balancing transparency and predictive power.
+
+For more details, see the [Business Understanding section](README.md) in this file.
+
+---
+
+## Project Structure
+
+- `data/`  
+  &nbsp;&nbsp;• `raw/`  
+  &nbsp;&nbsp;• `processed/`  
+- `notebook/`  
+  &nbsp;&nbsp;• `1.0-eda.ipynb`  
+- `src/`  
+  &nbsp;&nbsp;• `api/`  
+  &nbsp;&nbsp;&nbsp;&nbsp;• `main.py`  
+  &nbsp;&nbsp;&nbsp;&nbsp;• `pydantic_models.py`  
+  &nbsp;&nbsp;• `data_processing.py`  
+  &nbsp;&nbsp;• `train.py`  
+- `tests/`  
+- `DockerFile`  
+- `docker-compose.yml`  
+- `requirement.txt`  
+- `.github/`  
+  &nbsp;&nbsp;• `workflows/`  
+  &nbsp;&nbsp;&nbsp;&nbsp;• `ci.yml`  
+-
+
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.8+
+- pip
+- Docker (optional, for containerized deployment)
+
+### Installation
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/Samri-A/credit-scoring-model.git
+    cd credit-scoring-model
+    ```
+
+2. Install dependencies:
+    ```sh
+    pip install -r requirement.txt
+    ```
+
+3. (Optional) Start with Docker:
+    ```sh
+    docker-compose up --build
+    ```
+
+---
+
+## Usage
+
+- **Exploratory Data Analysis:**  
+  Open and run [`notebook/1.0-eda.ipynb`](notebook/1.0-eda.ipynb) for data exploration and visualization.
+
+- **Data Processing & Model Training:**  
+  Use scripts in [`src/`](src/) such as [`src/data_processing.py`](src/data_processing.py) and [`src/train.py`](src/train.py).
+
+    ```sh
+    python src/data_processing.py
+    python src/train.py
+    ```
+
+- **API Deployment:**  
+  The scoring API is implemented in [`src/api/main.py`](src/api/main.py).  
+  To run locally:
+    ```sh
+    uvicorn src.api.main:app --reload
+    ```
+
+---
+
+## Testing
+
+Run unit tests with:
+
+```sh
+python -m unittest discover tests
