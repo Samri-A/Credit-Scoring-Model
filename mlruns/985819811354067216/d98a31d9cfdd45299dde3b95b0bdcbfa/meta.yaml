@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/HP/Desktop/Tenx/Credit-Scoring-Model/mlruns/985819811354067216/d98a31d9cfdd45299dde3b95b0bdcbfa/artifacts
+end_time: 1751478660613
+entry_point_name: ''
+experiment_id: '985819811354067216'
+lifecycle_stage: active
+run_id: d98a31d9cfdd45299dde3b95b0bdcbfa
+run_name: RandomForest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751478635018
+status: 3
+tags: []
+user_id: HP

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/HP/Desktop/Tenx/Credit-Scoring-Model/mlruns/985819811354067216/a9af4fa337a2494180e333225ec4bc13/artifacts
+end_time: 1751389874944
+entry_point_name: ''
+experiment_id: '985819811354067216'
+lifecycle_stage: active
+run_id: a9af4fa337a2494180e333225ec4bc13
+run_name: gregarious-crane-977
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751389836577
+status: 3
+tags: []
+user_id: HP

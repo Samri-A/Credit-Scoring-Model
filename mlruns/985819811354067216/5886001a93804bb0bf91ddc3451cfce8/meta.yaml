@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/HP/Desktop/Tenx/Credit-Scoring-Model/mlruns/985819811354067216/5886001a93804bb0bf91ddc3451cfce8/artifacts
+end_time: 1751391488139
+entry_point_name: ''
+experiment_id: '985819811354067216'
+lifecycle_stage: active
+run_id: 5886001a93804bb0bf91ddc3451cfce8
+run_name: enchanting-grub-773
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751391462141
+status: 3
+tags: []
+user_id: HP
