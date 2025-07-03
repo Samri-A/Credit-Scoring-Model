@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/HP/OneDrive/Desktop/Tenx/Credit-Scoring-Model/mlruns/126648251032960403/models/m-2c0f3def0dbf463eaa86df6d7c366428/artifacts
+creation_timestamp: 1751526979784
+experiment_id: '126648251032960403'
+last_updated_timestamp: 1751526992663
+model_id: m-2c0f3def0dbf463eaa86df6d7c366428
+model_type: null
+name: best_random_forest_model
+source_run_id: 2e02f590dac84153aa4c439daf52c959
+status: 2
+status_message: null

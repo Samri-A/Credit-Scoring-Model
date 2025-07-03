@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/HP/OneDrive/Desktop/Tenx/Credit-Scoring-Model/mlruns/126648251032960403/models/m-e0388e25156148adaf48a9f778fd7656/artifacts
+creation_timestamp: 1751529324433
+experiment_id: '126648251032960403'
+last_updated_timestamp: 1751529334298
+model_id: m-e0388e25156148adaf48a9f778fd7656
+model_type: null
+name: logistic_regression_model
+source_run_id: f80869eea63943359376e15ccac85d6d
+status: 2
+status_message: null

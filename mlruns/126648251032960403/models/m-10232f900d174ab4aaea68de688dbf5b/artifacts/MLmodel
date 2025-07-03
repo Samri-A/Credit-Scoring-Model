@@ -1,0 +1,22 @@
+artifact_path: file:///C:/Users/HP/OneDrive/Desktop/Tenx/Credit-Scoring-Model/mlruns/126648251032960403/models/m-10232f900d174ab4aaea68de688dbf5b/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.0
+mlflow_version: 3.1.1
+model_id: m-10232f900d174ab4aaea68de688dbf5b
+model_size_bytes: 924
+model_uuid: m-10232f900d174ab4aaea68de688dbf5b
+prompts: null
+run_id: 634ee58e209f48b686bba42a0516ca69
+utc_time_created: '2025-07-03 07:23:49.772404'
