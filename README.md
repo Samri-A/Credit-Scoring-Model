@@ -34,117 +34,104 @@ Our dataset does not carry an explicit “default = Yes/No” label. To trai
 
 # Credit Scoring Model
 
-A machine learning project for credit risk assessment using transactional data. This repository contains code, data, and notebooks for building, evaluating, and serving a credit scoring model, with a focus on regulatory compliance and interpretability.
+## Business Understanding
 
----
-
-## Table of Contents
-
-- [Project Overview](#project-overview)
-- [Business Understanding](#business-understanding)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Testing](#testing)
-- [API](#api)
-- [Acknowledgements](#acknowledgements)
-
----
+Credit risk assessment is a critical process for financial institutions to determine the likelihood that a loan applicant will default on their obligations. An accurate credit scoring model enables lenders to make informed decisions, minimize losses, and offer fair credit terms to customers. This project aims to automate and enhance the credit evaluation process using machine learning, reducing manual effort and improving prediction accuracy.
 
 ## Project Overview
 
-This project aims to develop a credit scoring model using historical transaction data. The model predicts the likelihood of default, supporting risk management and lending decisions. The workflow includes data processing, exploratory analysis, model training, and API deployment.
+This project provides a complete pipeline for building, training, and evaluating machine learning models to predict the creditworthiness of loan applicants. It includes data preprocessing, feature engineering, model selection, evaluation, and deployment-ready code. The solution is modular, allowing easy experimentation with different algorithms and datasets.
 
----
+## Features
 
-## Business Understanding
-
-- **Regulatory Focus:** Basel II compliance, emphasizing interpretable and well-documented models.
-- **Proxy Default Variable:** Since the dataset lacks an explicit default label, a proxy (e.g., 90 days past due) is used for supervised learning.
-- **Model Choices:** Both simple (logistic regression) and complex (gradient boosting) models are considered, balancing transparency and predictive power.
-
-For more details, see the [Business Understanding section](README.md) in this file.
-
----
+- Data cleaning and preprocessing
+- Feature engineering and selection
+- Multiple machine learning models (Logistic Regression, Random Forest, XGBoost, etc.)
+- Model evaluation with industry-standard metrics (ROC-AUC, confusion matrix, etc.)
+- Hyperparameter tuning
+- Model persistence (saving/loading)
+- Example Jupyter notebooks for exploration
+- Clear project structure for scalability
 
 ## Project Structure
 
-- `data/`  
-  &nbsp;&nbsp;• `raw/`  
-  &nbsp;&nbsp;• `processed/`  
-- `notebook/`  
-  &nbsp;&nbsp;• `1.0-eda.ipynb`  
-- `src/`  
-  &nbsp;&nbsp;• `api/`  
-  &nbsp;&nbsp;&nbsp;&nbsp;• `main.py`  
-  &nbsp;&nbsp;&nbsp;&nbsp;• `pydantic_models.py`  
-  &nbsp;&nbsp;• `data_processing.py`  
-  &nbsp;&nbsp;• `train.py`  
-- `tests/`  
-- `DockerFile`  
-- `docker-compose.yml`  
-- `requirement.txt`  
-- `.github/`  
-  &nbsp;&nbsp;• `workflows/`  
-  &nbsp;&nbsp;&nbsp;&nbsp;• `ci.yml`  
--
+```text
+Credit-Scoring-Model/
+│
+├── data/                   # Raw and processed datasets
+├── notebooks/              # Jupyter notebooks for EDA and prototyping
+├── src/                    # Source code (preprocessing, modeling, utils)
+│   ├── data_preprocessing.py
+│   ├── feature_engineering.py
+│   ├── model.py
+│   └── utils.py
+├── models/                 # Saved trained models
+├── outputs/                # Evaluation results, plots, etc.
+├── requirements.txt        # Python dependencies
+├── README.md               # Project documentation
+└── ...                     # Other files
+```
 
+## Installation
 
----
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/Credit-Scoring-Model.git
+   cd Credit-Scoring-Model
+   ```
 
-## Getting Started
+2. **(Optional) Create a virtual environment:**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-### Prerequisites
-
-- Python 3.8+
-- pip
-- Docker (optional, for containerized deployment)
-
-### Installation
-
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/Samri-A/credit-scoring-model.git
-    cd credit-scoring-model
-    ```
-
-2. Install dependencies:
-    ```sh
-    pip install -r requirement.txt
-    ```
-
-3. (Optional) Start with Docker:
-    ```sh
-    docker-compose up --build
-    ```
-
----
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Usage
 
-- **Exploratory Data Analysis:**  
-  Open and run [`notebook/1.0-eda.ipynb`](notebook/1.0-eda.ipynb) for data exploration and visualization.
+1. **Prepare your data:**
+   - Place raw data files in the `data/` directory.
 
-- **Data Processing & Model Training:**  
-  Use scripts in [`src/`](src/) such as [`src/data_processing.py`](src/data_processing.py) and [`src/train.py`](src/train.py).
+2. **Data Preprocessing:**
+   - Run preprocessing to clean and transform data:
+     ```bash
+     python src/data_preprocessing.py
+     ```
 
-    ```sh
-    python src/data_processing.py
-    python src/train.py
-    ```
+3. **Feature Engineering:**
+   - Generate features:
+     ```bash
+     python src/feature_engineering.py
+     ```
 
-- **API Deployment:**  
-  The scoring API is implemented in [`src/api/main.py`](src/api/main.py).  
-  To run locally:
-    ```sh
-    uvicorn src.api.main:app --reload
-    ```
+4. **Model Training:**
+   - Train the model:
+     ```bash
+     python src/train.py --train
+     ```
 
----
+5. **Model Evaluation:**
+   - Evaluate the trained model:
+     ```bash
+     python src/train.py --evaluate
+     ```
 
-## Testing
+6. **Prediction:**
+   - Use the trained model to predict new applicants' creditworthiness.
 
-Run unit tests with:
+## Model Training & Evaluation
 
-```sh
-python -m unittest discover tests
+- Supports multiple algorithms and hyperparameter tuning.
+- Evaluation metrics: ROC-AUC, accuracy, precision, recall, F1-score.
+
+## Contribution Guidelines
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Commit changes with clear messages.
+4. Submit a pull request with a description.
+
