@@ -1,1 +1,13 @@
+<<<<<<< HEAD
+pandas
+scikit-learn
+seaborn
+matplotlib
+xverse
+mlflow
+pytest
+fastapi 
+uvicorn
+=======
 
+>>>>>>> 5621e33aac1cc0b2e98342d808bbcadacfc30464
