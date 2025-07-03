@@ -1,17 +1,18 @@
-import mlflow.pyfunc
+from pydantic import BaseModel, Field
 
-class AddN(mlflow.pyfunc.PythonModel):
-    def __init__(self, n):
-        self.n = n
 
-    def predict(self, context, model_input):
-        return model_input + self.n
+class CreditRiskInput(BaseModel):
+    Total_Amount: float = Field(..., example=15000.0)
+    Average_Amount: float = Field(..., example=500.0)
+    Transaction_Count: int = Field(..., example=30)
+    Std_Amount: float = Field(..., example=200.5)
 
-# Instantiate and choose your save directory
-model = AddN(n=5)
-local_path = "/Users/HP/Desktop/Tenx/Credit-Scoring-Model/models/add_n_model"
-
-mlflow.pyfunc.save_model(
-    path=local_path,
-    python_model=model
-)
+    class Config:
+        schema_extra = {
+            "example": {
+                "Total_Amount": 15000.0,
+                "Average_Amount": 500.0,
+                "Transaction_Count": 30,
+                "Std_Amount": 200.5
+            }
+        }

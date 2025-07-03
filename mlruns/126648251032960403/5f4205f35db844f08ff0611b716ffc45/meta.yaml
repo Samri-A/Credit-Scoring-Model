@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/HP/OneDrive/Desktop/Tenx/Credit-Scoring-Model/mlruns/126648251032960403/5f4205f35db844f08ff0611b716ffc45/artifacts
+end_time: 1751525923447
+entry_point_name: ''
+experiment_id: '126648251032960403'
+lifecycle_stage: active
+run_id: 5f4205f35db844f08ff0611b716ffc45
+run_name: LogisticRegression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751525905582
+status: 3
+tags: []
+user_id: HP

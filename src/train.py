@@ -125,7 +125,7 @@ def train():
     
     
     # create a folder for your models
-    output_dir = "/Users/HP/Desktop/Tenx/Credit-Scoring-Model/models"
+    output_dir = "/Users/HP/OneDrive/Desktop/Tenx/Credit-Scoring-Model/models"
     os.makedirs(output_dir, exist_ok=True)
     
     # after training & grid search...
