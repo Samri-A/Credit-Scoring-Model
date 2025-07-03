@@ -31,22 +31,13 @@ Our dataset does not carry an explicit “default = Yes/No” label. To trai
 
 ---
 
-
 # Credit Scoring Model
 
-## Business Understanding
-
-Credit risk assessment is a critical process for financial institutions to determine the likelihood that a loan applicant will default on their obligations. An accurate credit scoring model enables lenders to make informed decisions, minimize losses, and offer fair credit terms to customers. This project aims to automate and enhance the credit evaluation process using machine learning, reducing manual effort and improving prediction accuracy.
-
-## Project Overview
-
-This project provides a complete pipeline for building, training, and evaluating machine learning models to predict the creditworthiness of loan applicants. It includes data preprocessing, feature engineering, model selection, evaluation, and deployment-ready code. The solution is modular, allowing easy experimentation with different algorithms and datasets.
+A robust, modular machine learning project for credit risk assessment. This repository provides tools for data preprocessing, feature engineering, model training, evaluation, and deployment, with a focus on reproducibility and scalability.
 
 ## Features
 
-- Data cleaning and preprocessing
-- Feature engineering and selection
-- Multiple machine learning models (Logistic Regression, Random Forest, XGBoost, etc.)
+- End-to-end pipeline: data ingestion, preprocessing, feature engineering, model training, and prediction
 - Model evaluation with industry-standard metrics (ROC-AUC, confusion matrix, etc.)
 - Hyperparameter tuning
 - Model persistence (saving/loading)
@@ -59,17 +50,26 @@ This project provides a complete pipeline for building, training, and evaluating
 Credit-Scoring-Model/
 │
 ├── data/                   # Raw and processed datasets
-├── notebooks/              # Jupyter notebooks for EDA and prototyping
+│   ├── raw/
+│   └── processed/
+├── notebook/               # Jupyter notebooks for EDA and prototyping
+│   ├── 1.0-eda.ipynb
+│   └── process_data.ipynb
 ├── src/                    # Source code (preprocessing, modeling, utils)
-│   ├── data_preprocessing.py
-│   ├── feature_engineering.py
-│   ├── model.py
-│   └── utils.py
+│   ├── __init__.py
+│   ├── data_processing.py
+│   ├── predict.py
+│   ├── train.py
+│   └── api/
 ├── models/                 # Saved trained models
-├── outputs/                # Evaluation results, plots, etc.
+│   ├── logistic_regression_model/
+│   └── random_forest_model/
+├── tests/                  # Unit tests
+│   └── unitest.py
 ├── requirements.txt        # Python dependencies
+├── Dockerfile              # For containerized deployment
 ├── README.md               # Project documentation
-└── ...                     # Other files
+└── ...
 ```
 
 ## Installation
@@ -82,8 +82,8 @@ Credit-Scoring-Model/
 
 2. **(Optional) Create a virtual environment:**
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   python -m venv env
+   source env/bin/activate  # On Windows: env\Scripts\activate
    ```
 
 3. **Install dependencies:**
@@ -93,45 +93,41 @@ Credit-Scoring-Model/
 
 ## Usage
 
-1. **Prepare your data:**
-   - Place raw data files in the `data/` directory.
+### Data Preparation
 
-2. **Data Preprocessing:**
-   - Run preprocessing to clean and transform data:
-     ```bash
-     python src/data_preprocessing.py
-     ```
+- Place your raw data files in `data/raw/`.
+- Use the provided notebooks in `notebook/` for exploratory data analysis and preprocessing.
 
-3. **Feature Engineering:**
-   - Generate features:
-     ```bash
-     python src/feature_engineering.py
-     ```
+### Training
 
-4. **Model Training:**
-   - Train the model:
-     ```bash
-     python src/train.py --train
-     ```
+Run the training script to train and save models:
+```bash
+python src/train.py
+```
 
-5. **Model Evaluation:**
-   - Evaluate the trained model:
-     ```bash
-     python src/train.py --evaluate
-     ```
+### Prediction
 
-6. **Prediction:**
-   - Use the trained model to predict new applicants' creditworthiness.
+Use the prediction script to generate predictions on new data:
+```bash
+python src/predict.py --input data/processed/new_data.csv --output outputs/predictions.csv
+```
 
-## Model Training & Evaluation
+### Testing
 
-- Supports multiple algorithms and hyperparameter tuning.
-- Evaluation metrics: ROC-AUC, accuracy, precision, recall, F1-score.
+Run unit tests to verify code correctness:
+```bash
+python -m unittest discover tests
+```
 
-## Contribution Guidelines
+### Docker
 
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Commit changes with clear messages.
-4. Submit a pull request with a description.
+To build and run the project in a Docker container:
+```bash
+docker build -t credit-scoring-model .
+docker run --rm -it credit-scoring-model
+```
+
+## Contributing
+
+Contributions are welcome! Please open issues or submit pull requests for improvements.
 
